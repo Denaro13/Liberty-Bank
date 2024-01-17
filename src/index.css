@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Extra Styling */
+
+.landing {
+  min-height: calc(100vh - 6rem);
+}
+@media screen and (min-width: 768) {
+  .page {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 3rem;
+  }
+}
+body {
+  background-color: #f0f4f8;
+}
+
+.Toastify__toast {
+  text-transform: capitalize;
+}
