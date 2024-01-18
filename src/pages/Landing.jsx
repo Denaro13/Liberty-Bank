@@ -9,7 +9,7 @@ const Landing = () => {
       <nav className="mx-auto my-0 flex items-center w-11/12 max-w-screen-xl h-24">
         <Logo />
       </nav>
-      <div className=" landing w-11/12 max-w-screen-xl mx-auto my-0 grid md:grid-cols-2 items-center mt--20">
+      <div className=" landing w-11/12 max-w-screen-xl mx-auto my-0 grid items-center md:grid-cols-2  mt--20">
         <div>
           <h1 className=" text-4xl font-bold lg:text-5xl capitalize mb-10 leading-snug tracking-wide">
             liberty <span className="text-blue-400">online</span> Banking
