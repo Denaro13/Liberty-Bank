@@ -16,7 +16,7 @@ const BigSidebar = () => {
           <header className="lg:h-24 lg:flex lg:items-center pl-6">
             <Logo style={"text-xl"} />
           </header>
-          <NavLinks />
+          <NavLinks style={"pl-6 hover:pl-10 hover:text-blue-400"} />
         </div>
       </div>
     </aside>

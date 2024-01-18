@@ -26,9 +26,9 @@ body {
   grid-template-columns: 1fr;
 }
 .dashboard-page {
-  width: 90vw;
+  width: 100vw;
   margin: 0 auto;
-  padding: 2rem 0;
+  padding: 0 0;
 }
 
 @media screen and (min-width: 1024px) {
@@ -36,24 +36,21 @@ body {
     grid-template-columns: auto 1fr;
   }
   .dashboard-page {
-    width: 90%;
+    width: 100%;
   }
   .nav-center {
-    width: 90%;
+    /* width: 90%; */
   }
   .big-side {
     box-shadow: 1px 0px 0px 0px rgba(0, 0, 0, 0.1);
   }
 }
-.nav {
-  box-shadow: 0 1px 0px 0px rgba(0, 0, 0, 0.1);
-}
-.nav-center {
+/* .nav-center {
   display: flex;
   width: 90%;
   align-items: center;
   justify-content: space-between;
-}
+} */
 .bar {
   margin-left: -14rem;
 }

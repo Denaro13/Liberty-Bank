@@ -10,16 +10,17 @@ import {
   SharedLayout,
 } from "./pages/userDashboard";
 function App() {
+  const user = "james";
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/user-dashboard" element={<SharedLayout />}>
+        <Route path={`/user/${user}`} element={<SharedLayout />}>
           <Route index element={<UserDashboard />} />
-          <Route path="/user-dashboard/accounts" element={<Accounts />} />
-          <Route path="/user-dashboard/profile" element={<Profile />} />
-          <Route path="/user-dashboard/transfer" element={<Transfer />} />
+          <Route path={`/user/${user}/accounts`} element={<Accounts />} />
+          <Route path={`/user/${user}/profile`} element={<Profile />} />
+          <Route path={`/user/${user}/transact`} element={<Transfer />} />
         </Route>
-        <Route path="/landing" element={<Landing />} />
+        <Route path="/" element={<Landing />} />
         <Route path="/register" element={<Register />} />
         <Route path="*" element={<Error />} />
       </Routes>
