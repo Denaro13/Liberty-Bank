@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Logo from "./Logo";
 import { FaAlignLeft, FaUserCircle, FaCaretDown } from "react-icons/fa";
 
-const Navbar = ({ text }) => {
+const Navbar = ({ text, user }) => {
   const [showLogout, setShowLogout] = useState(false);
 
   return (
@@ -12,11 +12,12 @@ const Navbar = ({ text }) => {
         <div className="relative">
           <button
             type="button"
-            className="flex items-center justify-center gap-y-0 gap-x-2 relative shadow text-xl bg-blue-400 text-white px-1 py-2"
+            className="flex items-center justify-center gap-y-0 gap-x-2 relative shadow text-xl bg-blue-400 text-white px-1 py-2 capitalize"
             onClick={() => setShowLogout(!showLogout)}
           >
             <FaUserCircle />
-            {/* {user?.name} */}James
+            {/* {user?.name} */}
+            {user}
             <FaCaretDown />
           </button>
           <div

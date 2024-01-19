@@ -4,8 +4,10 @@ import { Navbar } from "../../components";
 const Accounts = () => {
   return (
     <div>
-      <Navbar text="accounts" />
-      <h2>Accounts</h2>
+      <Navbar text="accounts" user="james" />
+      <div className="w-11/12 mx-auto">
+        <h2>Accounts</h2>
+      </div>
     </div>
   );
 };

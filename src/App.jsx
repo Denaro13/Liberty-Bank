@@ -9,8 +9,14 @@ import {
   Transfer,
   SharedLayout,
 } from "./pages/userDashboard";
+import {
+  AdminDashboard,
+  AdminProfile,
+  AdminSharedLayout,
+} from "./pages/adminDashboard";
 function App() {
   const user = "james";
+  const admin = "usman";
   return (
     <BrowserRouter>
       <Routes>
@@ -19,6 +25,10 @@ function App() {
           <Route path={`/user/${user}/accounts`} element={<Accounts />} />
           <Route path={`/user/${user}/profile`} element={<Profile />} />
           <Route path={`/user/${user}/transact`} element={<Transfer />} />
+        </Route>
+        <Route path={`/admin/${admin}`} element={<AdminSharedLayout />}>
+          <Route index element={<AdminDashboard />} />
+          <Route path={`/admin/${admin}/profile`} element={<AdminProfile />} />
         </Route>
         <Route path="/" element={<Landing />} />
         <Route path="/register" element={<Register />} />

@@ -1,15 +1,15 @@
 import React from "react";
 import { Navbar } from "../../components";
 
-const UserDashboard = () => {
+const AdminProfile = () => {
   return (
     <div>
-      <Navbar text="dashboard" user="james" />
+      <Navbar text="profile" user="usman" />
       <div className="w-11/12 mx-auto">
-        <h2>user dashboard</h2>
+        <h2>admin profile</h2>
       </div>
     </div>
   );
 };
 
-export default UserDashboard;
+export default AdminProfile;
