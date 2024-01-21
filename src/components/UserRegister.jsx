@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import FormRow from "./FormRow";
 import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser, registerUser } from "../features/userSlice";
+import { useNavigate } from "react-router-dom";
 
 const initialState = {
   firstName: "",
@@ -18,11 +19,18 @@ const UserRegister = ({ isMember }) => {
   const [userData, setUserData] = useState(initialState);
   const { user, isLoading } = useSelector((store) => store.user);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (user) {
+      setTimeout(() => {
+        navigate(`/user`);
+      }, 2000);
+    }
+  }, [user]);
 
   const handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
-    // console.log(`${name}:${value}`);
     setUserData({ ...userData, [name]: value });
   };
 
@@ -43,8 +51,17 @@ const UserRegister = ({ isMember }) => {
       return;
     }
     dispatch(
-      registerUser({ firstName, lastName, email, password, address, role })
+      registerUser({
+        firstName,
+        lastName,
+        email,
+        phoneNumber,
+        password,
+        address,
+        role,
+      })
     );
+    setUserData(initialState);
   };
 
   return (
@@ -56,6 +73,7 @@ const UserRegister = ({ isMember }) => {
             name="firstName"
             labelText="first name"
             value={userData.firstName}
+            style="capitalize"
             handleChange={handleChange}
           />
           <FormRow
@@ -63,6 +81,7 @@ const UserRegister = ({ isMember }) => {
             name="lastName"
             labelText="last name"
             value={userData.lastName}
+            style="capitalize"
             handleChange={handleChange}
           />
         </>
@@ -78,6 +97,7 @@ const UserRegister = ({ isMember }) => {
         type="password"
         name="password"
         value={userData.password}
+        // minLength="6"
         handleChange={handleChange}
       />
       {!isMember && (
@@ -94,6 +114,7 @@ const UserRegister = ({ isMember }) => {
             name="address"
             labelText="address"
             value={userData.address}
+            style="capitalize"
             handleChange={handleChange}
           />
         </>

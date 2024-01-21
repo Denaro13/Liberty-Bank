@@ -7,6 +7,8 @@ const FormRow = ({
   handleChange,
   labelText,
   autoComplete,
+  style,
+  minLength,
 }) => {
   return (
     <div className="mb-4 mt-4">
@@ -23,7 +25,8 @@ const FormRow = ({
         value={value}
         autoComplete="on"
         onChange={handleChange}
-        className="w-full h-10 py-2 px-2 bg-gray-50 rounded-md border-gray-200 border-2 border-solid"
+        minLength={minLength}
+        className={`${style} w-full h-10 py-2 px-2 bg-gray-50 rounded-md border-gray-200 border-2 border-solid `}
       />
     </div>
   );

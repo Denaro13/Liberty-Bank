@@ -1,8 +1,11 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import links from "../utils/links";
+import { useDispatch } from "react-redux";
+import { toggleSidebar } from "../features/generalSlice";
 
 const NavLinks = ({ style }) => {
+  const dispatch = useDispatch();
   return (
     <div className="pt-4 flex flex-col">
       {links.map((link) => {
@@ -16,7 +19,7 @@ const NavLinks = ({ style }) => {
                 ? `flex items-center py-4 px-0 capitalize ${style} hover:text-blue-400 transition-all text-blue-400`
                 : `flex items-center py-4 px-0 capitalize ${style} hover:text-blue-400  transition-all`;
             }}
-            // onClick={toggleSidebar}
+            onClick={() => dispatch(toggleSidebar())}
             end
           >
             <span className="text-2xl mr-4 grid place-items-center ">

@@ -1,13 +1,26 @@
 import React, { useState } from "react";
 import Logo from "./Logo";
 import { FaAlignLeft, FaUserCircle, FaCaretDown } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleSidebar } from "../features/generalSlice";
 
-const Navbar = ({ text, user }) => {
+const Navbar = ({ text, user, logout }) => {
   const [showLogout, setShowLogout] = useState(false);
+  const dispatch = useDispatch();
+  const { isSidebarOpen } = useSelector((store) => store.general);
 
   return (
-    <nav className="h-24 flex items-center justify-center lg:sticky lg:top-0">
+    <nav className="h-24 flex items-center justify-center bg-white lg:bg-transparent lg:sticky lg:top-0">
       <div className="flex items-center justify-between w-11/12">
+        {!isSidebarOpen && (
+          <button
+            type="button"
+            onClick={() => dispatch(toggleSidebar())}
+            className="lg:hidden text-3xl text-blue-400"
+          >
+            <FaAlignLeft />
+          </button>
+        )}
         <h3 className="capitalize text-3xl">{text}</h3>
         <div className="relative">
           <button
@@ -30,7 +43,7 @@ const Navbar = ({ text, user }) => {
             <button
               type="button"
               className="bg-transparent border-transparent text-blue-600 tracking-wide capitalize cursor-pointer"
-              onClick={() => console.log("you clicked me")}
+              onClick={() => dispatch(logout())}
             >
               logout
             </button>
