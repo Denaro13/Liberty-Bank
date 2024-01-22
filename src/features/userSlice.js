@@ -54,6 +54,7 @@ const userSlice = createSlice({
     logout: (state) => {
       state.user = null;
       removeUserFromLocalStorage();
+      localStorage.removeItem("image");
     },
   },
   extraReducers: (builder) => {

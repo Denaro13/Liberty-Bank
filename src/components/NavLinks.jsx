@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import links from "../utils/links";
 import { useDispatch } from "react-redux";
-import { toggleSidebar } from "../features/generalSlice";
+import { toggleSidebar } from "../features/userSlice";
 
 const NavLinks = ({ style }) => {
   const dispatch = useDispatch();

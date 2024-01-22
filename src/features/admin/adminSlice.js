@@ -10,6 +10,7 @@ import {
 const initialState = {
   isLoading: false,
   admin: getAdminFromLocalStorage(),
+  isSidebarOpen: false,
 };
 
 export const registerAdmin = createAsyncThunk(
@@ -49,6 +50,10 @@ const adminSlice = createSlice({
     logout: (state) => {
       state.admin = null;
       removeAdminFromLocalStorage();
+      localStorage.removeItem("image");
+    },
+    toggleSidebar: (state) => {
+      state.isSidebarOpen = !state.isSidebarOpen;
     },
   },
   extraReducers: (builder) => {
@@ -83,6 +88,6 @@ const adminSlice = createSlice({
   },
 });
 
-export const { logout } = adminSlice.actions;
+export const { logout, toggleSidebar } = adminSlice.actions;
 
 export default adminSlice.reducer;

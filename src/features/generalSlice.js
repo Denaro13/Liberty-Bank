@@ -6,7 +6,7 @@ const initialState = {
 };
 
 const generalSlice = createSlice({
-  name: "user",
+  name: "general",
   initialState,
   reducers: {
     toggleSidebar: (state) => {

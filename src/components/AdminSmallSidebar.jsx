@@ -2,14 +2,18 @@ import React, { useState } from "react";
 import { FaTimes } from "react-icons/fa";
 import Logo from "./Logo";
 import AdminNavLinks from "./AdminNavLinks";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleSidebar } from "../features/admin/adminSlice";
 
 const AdminSmallSidebar = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  // const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const { isSidebarOpen } = useSelector((store) => store.admin);
+  const dispatch = useDispatch();
   return (
     <aside className="lg:hidden ">
       <div
         className={
-          isSidebarOpen
+          !isSidebarOpen
             ? "fixed inset-0 bg-white flex items-center justify-center opacity-0 small-sidebar "
             : "fixed inset-0 bg-white flex items-center justify-center opacity-1 small-sidebar show-sidebar"
         }
@@ -17,7 +21,7 @@ const AdminSmallSidebar = () => {
         <div className="small-content bg-white rounded py-16 px-8 relative flex items-center flex-col ">
           <button
             className="absolute top-3 left-3 bg-transparent border-transparent text-4xl text-red-800 cursor-pointer"
-            // onClick={() => dispatch(toggleSidebar())}
+            onClick={() => dispatch(toggleSidebar())}
           >
             <FaTimes />
           </button>

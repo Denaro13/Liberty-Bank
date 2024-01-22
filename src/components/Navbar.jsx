@@ -2,17 +2,16 @@ import React, { useState } from "react";
 import Logo from "./Logo";
 import { FaAlignLeft, FaUserCircle, FaCaretDown } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
-import { toggleSidebar } from "../features/generalSlice";
+// import { toggleSidebar } from "../features/generalSlice";
 
-const Navbar = ({ text, user, logout }) => {
+const Navbar = ({ text, user, logout, sidebar, toggleSidebar }) => {
   const [showLogout, setShowLogout] = useState(false);
   const dispatch = useDispatch();
-  const { isSidebarOpen } = useSelector((store) => store.general);
 
   return (
     <nav className="h-24 flex items-center justify-center bg-white lg:bg-transparent lg:sticky lg:top-0">
       <div className="flex items-center justify-between w-11/12">
-        {!isSidebarOpen && (
+        {!sidebar && (
           <button
             type="button"
             onClick={() => dispatch(toggleSidebar())}
@@ -29,7 +28,6 @@ const Navbar = ({ text, user, logout }) => {
             onClick={() => setShowLogout(!showLogout)}
           >
             <FaUserCircle />
-            {/* {user?.name} */}
             {user}
             <FaCaretDown />
           </button>
