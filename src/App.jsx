@@ -15,6 +15,7 @@ import {
   AdminProfile,
   AdminProtectedRoute,
   AdminSharedLayout,
+  User,
 } from "./pages/adminDashboard";
 
 function App() {
@@ -44,6 +45,7 @@ function App() {
         >
           <Route index element={<AdminDashboard />} />
           <Route path={`/admin/profile`} element={<AdminProfile />} />
+          <Route path={`/admin/user/:email`} element={<User />} />
         </Route>
         <Route path="/" element={<Landing />} />
         <Route path="/register" element={<Register />} />

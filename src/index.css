@@ -66,3 +66,16 @@ body {
   width: 90vw;
   height: 95vh;
 }
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  /* transform: translate(50%, -50%); */
+}
+
+.modal-shadow {
+  box-shadow: 1px 0px 0px 0px rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.7);
+  /* z-index: -1; */
+}

@@ -1,12 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { ImageUpload, Navbar, ProfileInfo } from "../../components";
 import { logout, toggleSidebar } from "../../features/admin/adminSlice";
 import { useSelector } from "react-redux";
-
+import axios from "axios";
 const AdminProfile = () => {
   const { admin, isSidebarOpen } = useSelector((store) => store.admin);
   const { name, email, phoneNumber } = admin;
+  const [profile, setProfile] = useState({});
   const displayName = name.split(" ")[0].toLowerCase();
+
+  const getUser = async () => {
+    try {
+      const resp = await axios.get(
+        `http://localhost:8090/users/email?email=${email}`
+      );
+      setProfile(resp.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getUser();
+  }, []);
+
   return (
     <div>
       <Navbar
@@ -18,7 +35,7 @@ const AdminProfile = () => {
       />
       <div className="w-11/12 mt-10 mx-auto">
         <ImageUpload />
-        <ProfileInfo name={name} email={email} phoneNumber={phoneNumber} />
+        <ProfileInfo {...profile} />
       </div>
     </div>
   );

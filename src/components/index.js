@@ -10,6 +10,8 @@ import ProfileInfo from "./ProfileInfo";
 import UsersInfo from "./UsersInfo";
 import UserInfo from "./UserInfo";
 import Image from "./Image";
+import PersonalUserInfo from "./PersonalUserInfo";
+import UserAccount from "./UserAccount";
 
 export {
   Navbar,
@@ -24,4 +26,6 @@ export {
   UsersInfo,
   UserInfo,
   Image,
+  PersonalUserInfo,
+  UserAccount,
 };

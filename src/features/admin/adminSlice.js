@@ -33,11 +33,12 @@ export const loginAdmin = createAsyncThunk(
     // console.log(`Login Admin : ${JSON.stringify(admin)}`);
     try {
       const resp = await firstCustomFetch.post("/api/v1/auth/login", admin);
-      // console.log(resp.data);
+      if (resp.data.role !== "ADMIN") {
+        toast.error("Kindly Login as a USER");
+        return thunkAPI.rejectWithValue();
+      }
       return resp.data;
     } catch (error) {
-      // console.log(error.response);
-      // toast.error("there was an error");
       return thunkAPI.rejectWithValue(error.response.data.message);
     }
   }
@@ -47,10 +48,11 @@ const adminSlice = createSlice({
   name: "admin",
   initialState,
   reducers: {
-    logout: (state) => {
+    logout: (state, { payload }) => {
       state.admin = null;
       removeAdminFromLocalStorage();
       localStorage.removeItem("image");
+      toast.success("logging out...");
     },
     toggleSidebar: (state) => {
       state.isSidebarOpen = !state.isSidebarOpen;

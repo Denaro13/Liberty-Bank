@@ -19,8 +19,6 @@ export const registerUser = createAsyncThunk(
     // console.log(`Register User : ${JSON.stringify(user)}`);
     try {
       const resp = await firstCustomFetch.post("/users", user);
-      // return resp.data
-      // console.log(resp);
       return resp.data;
     } catch (error) {
       console.log(error.response);
@@ -34,7 +32,10 @@ export const loginUser = createAsyncThunk(
     // console.log(`Login User : ${JSON.stringify(user)}`);
     try {
       const resp = await firstCustomFetch.post("/api/v1/auth/login", user);
-      // console.log(resp.data);
+      if (resp.data.role !== "USER") {
+        toast.error("Kindly Login as an ADMIN");
+        return thunkAPI.rejectWithValue();
+      }
       return resp.data;
     } catch (error) {
       // console.log(error.response);
@@ -55,6 +56,7 @@ const userSlice = createSlice({
       state.user = null;
       removeUserFromLocalStorage();
       localStorage.removeItem("image");
+      toast.success("logging out...");
     },
   },
   extraReducers: (builder) => {

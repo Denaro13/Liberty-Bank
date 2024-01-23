@@ -7,7 +7,6 @@ import UserInfo from "./UserInfo";
 const UsersInfo = () => {
   const [users, setUsers] = useState([]);
   const [roleFilter, setRoleFilter] = useState("All");
-  //   const [filteredUsers, setFilteredUsers] = useState(users);
   const { admin } = useSelector((store) => store.admin);
   const token = admin.access_token;
 
@@ -58,7 +57,7 @@ const UsersInfo = () => {
           </select>
         </div>
       </div>
-      <div className="grid mx-auto gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid mx-auto gap-4 sm:grid-cols-2 ">
         {filteredUsers.map((user) => {
           return <UserInfo key={user.id} {...user} />;
         })}
