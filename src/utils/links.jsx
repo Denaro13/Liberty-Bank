@@ -30,8 +30,8 @@ const links = [
   },
   {
     id: 4,
-    text: "transact",
-    path: `/user/transact`,
+    text: "transactions",
+    path: `/user/transactions`,
     icon: <GrTransaction />,
   },
 ];

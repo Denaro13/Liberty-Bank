@@ -1,37 +1,37 @@
-import React, { useEffect, useState } from "react";
-import {
-  AvailableAccounts,
-  Navbar,
-  PersonalUserInfo,
-  UserAccount,
-} from "../../components";
-import { logout, toggleSidebar } from "../../features/admin/adminSlice";
-import { useSelector } from "react-redux";
-import { Link, useParams } from "react-router-dom";
 import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
+import { Navbar, UserAccount, UserAvailableAccount } from "../../components";
+import { logout, toggleSidebar } from "../../features/admin/adminSlice";
 
-const User = () => {
+const AdminAccounts = () => {
   const { admin, isSidebarOpen } = useSelector((store) => store.admin);
-  const name = admin.name.split(" ")[0].toLowerCase();
-  const { email } = useParams();
-  const [user, setUser] = useState({});
-  const token = admin.access_token;
   const [accounts, setAccounts] = useState([]);
+  const name = admin.name.split(" ")[0].toLowerCase();
+  const fullName = admin.name;
+  const token = admin.access_token;
 
-  const getUser = async () => {
+  const getAccounts = async () => {
     try {
       const resp = await axios.get(
-        `http://localhost:8090/users/email?email=${email}`
+        `http://localhost:8090/accounts/accountName?accountHolder=${fullName}`,
+        {
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+        }
       );
-      setUser(resp.data);
+      const account = resp.data[`${fullName}`];
+      //   console.log(account);
+      setAccounts(account);
     } catch (error) {
       console.log(error);
     }
   };
 
   useEffect(() => {
-    getUser();
+    getAccounts();
   }, []);
 
   const createAccount = async (accountType) => {
@@ -39,7 +39,7 @@ const User = () => {
       const resp = await axios.post(
         "http://localhost:8090/accounts",
         {
-          customerId: user.id,
+          customerId: admin.id,
           accountType: accountType,
         },
         {
@@ -56,31 +56,18 @@ const User = () => {
   return (
     <div>
       <Navbar
-        text="dashboard"
+        text="accounts"
         user={name}
         logout={logout}
         sidebar={isSidebarOpen}
         toggleSidebar={toggleSidebar}
       />
-      <div className="w-11/12 mx-auto pt-8">
-        <Link
-          to="/admin"
-          className="bg-blue-400 capitalize text-white rounded py-1 px-2"
-        >
-          back
-        </Link>
-        <PersonalUserInfo {...user} />
-        <AvailableAccounts
-          firstName={user.firstName}
-          lastName={user.lastName}
-          token={token}
-          accounts={accounts}
-          setAccounts={setAccounts}
-        />
+      <div className="w-11/12 mx-auto">
+        <UserAvailableAccount accounts={accounts} />
         <UserAccount
-          id={user.id}
+          id={admin.id}
           createAccount={createAccount}
-          text=" create new account for user"
+          text="create new account"
           accounts={accounts}
         />
       </div>
@@ -88,4 +75,4 @@ const User = () => {
   );
 };
 
-export default User;
+export default AdminAccounts;

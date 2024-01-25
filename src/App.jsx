@@ -6,15 +6,17 @@ import {
   UserDashboard,
   Accounts,
   Profile,
-  Transfer,
+  Transactions,
   SharedLayout,
   UserProtectedRoute,
 } from "./pages/userDashboard";
 import {
+  AdminAccounts,
   AdminDashboard,
   AdminProfile,
   AdminProtectedRoute,
   AdminSharedLayout,
+  AdminTransactions,
   User,
 } from "./pages/adminDashboard";
 
@@ -33,7 +35,7 @@ function App() {
           <Route index element={<UserDashboard />} />
           <Route path={`/user/accounts`} element={<Accounts />} />
           <Route path={`/user/profile`} element={<Profile />} />
-          <Route path={`/user/transact`} element={<Transfer />} />
+          <Route path={`/user/transactions`} element={<Transactions />} />
         </Route>
         <Route
           path={`/admin`}
@@ -45,6 +47,8 @@ function App() {
         >
           <Route index element={<AdminDashboard />} />
           <Route path={`/admin/profile`} element={<AdminProfile />} />
+          <Route path={`/admin/account`} element={<AdminAccounts />} />
+          <Route path={`/admin/transactions`} element={<AdminTransactions />} />
           <Route path={`/admin/user/:email`} element={<User />} />
         </Route>
         <Route path="/" element={<Landing />} />

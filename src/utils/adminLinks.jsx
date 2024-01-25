@@ -16,5 +16,17 @@ const links = [
     path: `/admin/profile`,
     icon: <ImProfile />,
   },
+  {
+    id: 3,
+    text: "account",
+    path: `/admin/account`,
+    icon: <FaPiggyBank />,
+  },
+  {
+    id: 4,
+    text: "transactions",
+    path: `/admin/transactions`,
+    icon: <GrTransaction />,
+  },
 ];
 export default links;

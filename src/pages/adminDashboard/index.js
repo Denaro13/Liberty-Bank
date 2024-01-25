@@ -3,6 +3,8 @@ import AdminProfile from "./AdminProfile";
 import AdminSharedLayout from "./AdminSharedLayout";
 import User from "./User";
 import AdminProtectedRoute from "./adminProtectedRoute";
+import AdminAccounts from "./AdminAccounts";
+import AdminTransactions from "./AdminTransactions";
 
 export {
   AdminDashboard,
@@ -10,4 +12,6 @@ export {
   AdminSharedLayout,
   AdminProtectedRoute,
   User,
+  AdminAccounts,
+  AdminTransactions,
 };

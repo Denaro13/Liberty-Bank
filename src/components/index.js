@@ -12,6 +12,11 @@ import UserInfo from "./UserInfo";
 import Image from "./Image";
 import PersonalUserInfo from "./PersonalUserInfo";
 import UserAccount from "./UserAccount";
+import AvailableAccounts from "./AvailableAccounts";
+import UserAvailableAccount from "./UserAvailableAccounts";
+import Deposit from "./Deposit";
+import Withdraw from "./Withdraw";
+import Transfer from "./Transfer";
 
 export {
   Navbar,
@@ -28,4 +33,9 @@ export {
   Image,
   PersonalUserInfo,
   UserAccount,
+  AvailableAccounts,
+  UserAvailableAccount,
+  Deposit,
+  Withdraw,
+  Transfer,
 };
