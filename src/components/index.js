@@ -17,6 +17,8 @@ import UserAvailableAccount from "./UserAvailableAccounts";
 import Deposit from "./Deposit";
 import Withdraw from "./Withdraw";
 import Transfer from "./Transfer";
+import TransactionHistory from "./TransactionHistory";
+import IndividualTransactions from "./IndividualTransactions";
 
 export {
   Navbar,
@@ -38,4 +40,6 @@ export {
   Deposit,
   Withdraw,
   Transfer,
+  TransactionHistory,
+  IndividualTransactions,
 };

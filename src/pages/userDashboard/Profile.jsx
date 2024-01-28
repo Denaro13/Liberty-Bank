@@ -6,7 +6,7 @@ import axios from "axios";
 
 const Profile = () => {
   const { user, isSidebarOpen } = useSelector((store) => store.user);
-  const { name, email, phoneNumber } = user;
+  const { name, email } = user;
   const [profile, setProfile] = useState({});
   const displayName = name.split(" ")[0].toLowerCase();
 

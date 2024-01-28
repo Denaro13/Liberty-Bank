@@ -1,5 +1,11 @@
 import React, { useState } from "react";
-import { Deposit, Navbar, Withdraw, Transfer } from "../../components";
+import {
+  Deposit,
+  Navbar,
+  Withdraw,
+  Transfer,
+  TransactionHistory,
+} from "../../components";
 import { logout, toggleSidebar } from "../../features/userSlice";
 import { useSelector } from "react-redux";
 
@@ -9,6 +15,7 @@ const Transactions = () => {
   const [deposit, setDeposit] = useState(false);
   const [withdrawal, setWithdrawal] = useState(false);
   const [transfer, setTransfer] = useState(false);
+  const token = user.access_token;
 
   const handleDeposit = () => {
     setDeposit(!deposit);
@@ -65,6 +72,7 @@ const Transactions = () => {
         {deposit && <Deposit />}
         {withdrawal && <Withdraw />}
         {transfer && <Transfer />}
+        <TransactionHistory fullName={user.name} token={token} />
       </div>
     </div>
   );
