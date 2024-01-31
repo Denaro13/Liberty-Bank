@@ -21,7 +21,7 @@ const Landing = () => {
           </p>
           <Link
             to="/register"
-            className="capitalize bg-blue-400 px-4 py-2 rounded-md text-white text-2xl"
+            className="capitalize bg-blue-400 px-4 py-2 rounded-md text-white text-2xl hover:bg-blue-500 hover:transition-all"
           >
             login/register
           </Link>

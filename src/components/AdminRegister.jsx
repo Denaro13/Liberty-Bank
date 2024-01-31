@@ -24,7 +24,7 @@ const AdminRegister = ({ isMember }) => {
   useEffect(() => {
     if (admin) {
       setTimeout(() => {
-        navigate("/admin");
+        navigate("/admin", { replace: true });
       }, 2000);
     }
   }, [admin]);

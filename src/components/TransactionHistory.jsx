@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
 import IndividualTransactions from "./IndividualTransactions";
 
 const TransactionHistory = ({ fullName, token }) => {
@@ -37,6 +36,9 @@ const TransactionHistory = ({ fullName, token }) => {
     <div className=" mt-4">
       <h2 className="text-3xl capitalize mb-4">transaction history</h2>
       <div className=" sm:w-1/2">
+        {accountIds.length < 1 && (
+          <h2 className="text-2xl">You have not made any transaction yet</h2>
+        )}
         {accountIds.map((id) => {
           return <IndividualTransactions key={id} id={id} />;
         })}

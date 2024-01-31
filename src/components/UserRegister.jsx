@@ -23,7 +23,7 @@ const UserRegister = ({ isMember }) => {
   useEffect(() => {
     if (user) {
       setTimeout(() => {
-        navigate(`/user`);
+        navigate(`/user`, { replace: true });
       }, 2000);
     }
   }, [user]);
@@ -84,24 +84,6 @@ const UserRegister = ({ isMember }) => {
             style="capitalize"
             handleChange={handleChange}
           />
-        </>
-      )}
-
-      <FormRow
-        type="email"
-        name="email"
-        value={userData.email}
-        handleChange={handleChange}
-      />
-      <FormRow
-        type="password"
-        name="password"
-        value={userData.password}
-        // minLength="6"
-        handleChange={handleChange}
-      />
-      {!isMember && (
-        <>
           <FormRow
             type="text"
             name="phoneNumber"
@@ -119,7 +101,20 @@ const UserRegister = ({ isMember }) => {
           />
         </>
       )}
-      {/* consider isLoading on the button */}
+
+      <FormRow
+        type="email"
+        name="email"
+        value={userData.email}
+        handleChange={handleChange}
+      />
+      <FormRow
+        type="password"
+        name="password"
+        value={userData.password}
+        // minLength="6"
+        handleChange={handleChange}
+      />
       <button
         type="submit"
         className="w-full text-white bg-blue-300 border-transparent tracking-wide py-1 px-3 shadow capitalize inline-block hover:bg-blue-500 hover:shadow-lg"

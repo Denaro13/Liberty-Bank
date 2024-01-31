@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { firstCustomFetch } from "../utils/axios";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import UserInfo from "./UserInfo";
+import { logout } from "../features/admin/adminSlice";
+import { toast } from "react-toastify";
 
 const UsersInfo = () => {
   const [users, setUsers] = useState([]);
   const [roleFilter, setRoleFilter] = useState("All");
   const { admin } = useSelector((store) => store.admin);
   const token = admin.access_token;
+  const dispatch = useDispatch();
 
   const getUsers = async () => {
     try {
@@ -21,6 +24,10 @@ const UsersInfo = () => {
       setUsers(data);
     } catch (error) {
       console.log(error);
+      if (error.response.status === 401) {
+        dispatch(logout());
+        toast.error(`${error.response.data.message}!, Logging out...`);
+      }
     }
   };
 
@@ -43,13 +50,13 @@ const UsersInfo = () => {
         <h2 className="capitalize text-2xl">users records</h2>
         <div>
           <label htmlFor="roleFilter" className="text-2xl capitalize">
-            filter users
+            filter users:
           </label>
           <select
             id="roleFilter"
             value={roleFilter}
             onChange={handleRoleFilterChange}
-            className="px-2 py-1 ml-3 text-xl bg-blue-400 text-white rounded"
+            className="px-2 py-1 ml-3 text-xl bg-blue-400 text-white rounded hover:bg-blue-500 transition-all"
           >
             <option value="All">All</option>
             <option value="USER">User</option>

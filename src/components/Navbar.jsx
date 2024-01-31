@@ -24,7 +24,7 @@ const Navbar = ({ text, user, logout, sidebar, toggleSidebar }) => {
         <div className="relative">
           <button
             type="button"
-            className="flex items-center justify-center gap-y-0 gap-x-2 relative shadow text-xl bg-blue-400 text-white px-1 py-2 capitalize"
+            className="flex items-center justify-center gap-y-0 gap-x-2 relative shadow text-xl bg-blue-400 text-white px-1 py-2 capitalize hover:bg-blue-500 transition-all"
             onClick={() => setShowLogout(!showLogout)}
           >
             <FaUserCircle />

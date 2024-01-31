@@ -49,21 +49,21 @@ const Transactions = () => {
         <div className="w-3/5 mx-auto flex flex-col gap-4 md:flex-row md:justify-between bg-white p-4">
           <button
             type="button"
-            className="bg-blue-400 capitalize text-white rounded py-1 px-1 text-2xl"
+            className="bg-blue-400 capitalize text-white rounded py-1 px-1 text-2xl hover:bg-blue-500 transition-all"
             onClick={handleDeposit}
           >
             Deposit
           </button>
           <button
             type="button"
-            className="bg-blue-400 capitalize text-white rounded py-1 px-1 text-2xl"
+            className="bg-blue-400 capitalize text-white rounded py-1 px-1 text-2xl hover:bg-blue-500 transition-all"
             onClick={handleWithdrawal}
           >
             withdraw
           </button>
           <button
             type="button"
-            className="bg-blue-400 capitalize text-white rounded py-1 px-1 text-2xl"
+            className="bg-blue-400 capitalize text-white rounded py-1 px-1 text-2xl hover:bg-blue-500 transition-all"
             onClick={handleTransfer}
           >
             transfer

@@ -65,7 +65,7 @@ const User = () => {
       <div className="w-11/12 mx-auto pt-8">
         <Link
           to="/admin"
-          className="bg-blue-400 capitalize text-white rounded py-1 px-2"
+          className="bg-blue-400 capitalize text-white rounded py-1 px-2 hover:bg-blue-500 transition-all"
         >
           back
         </Link>

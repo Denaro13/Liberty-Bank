@@ -27,7 +27,7 @@ const UserAccount = ({ id, createAccount, text, accounts }) => {
       {!modal && (
         <button
           type="button"
-          className="bg-blue-400 capitalize text-white rounded py-1 px-2 text-2xl"
+          className="bg-blue-400 capitalize text-white rounded py-1 px-2 text-2xl hover:bg-blue-500 transition-all"
           onClick={handleClick}
         >
           {text}
@@ -68,14 +68,14 @@ const UserAccount = ({ id, createAccount, text, accounts }) => {
           <div className="flex flex-col gap-2 sm:gap-0 sm:flex-row sm:justify-between">
             <button
               type="button"
-              className="bg-blue-400 capitalize text-white rounded py-1 px-1 text-sm"
+              className="bg-blue-400 capitalize text-white rounded py-1 px-1 text-sm hover:bg-blue-500 transition-all"
               onClick={() => create()}
             >
               create account
             </button>
             <button
               type="button"
-              className="bg-red-400 capitalize text-white rounded py-1 px-1 text-sm"
+              className="bg-red-400 capitalize text-white rounded py-1 px-1 text-sm  hover:bg-red-500 transition-all"
               onClick={() => setModal(false)}
             >
               cancel

@@ -77,7 +77,7 @@ const Deposit = () => {
         </div>
         <button
           type="submit"
-          className="bg-blue-400 capitalize text-white rounded py-1 px-1 text-sm mt-4"
+          className="bg-blue-400 capitalize text-white rounded py-1 px-1 text-sm mt-4 hover:bg-blue-500 transition-all"
         >
           complete deposit
         </button>

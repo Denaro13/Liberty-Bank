@@ -36,14 +36,10 @@ const ImageUpload = () => {
   return (
     <div className="grid  mb-12 relative w-36 h-36 text-center bg-blue-200 rounded-full">
       <Image image={image} style="w-36 h-36" />
-      {/* <img
-        src={image}
-        alt="user image"
-        className="w-36 h-36 mb-2 rounded-full object-cover"
-      /> */}
+
       <label
         htmlFor="image-upload-input"
-        className="absolute bottom-0 left-0 cursor-pointer text-white bg-blue-400 rounded px-1 text-sm capitalize"
+        className="absolute bottom-0 left-0 cursor-pointer text-white bg-blue-400 rounded px-1 text-sm capitalize hover:bg-blue-500 transition-all"
       >
         <input
           type="file"

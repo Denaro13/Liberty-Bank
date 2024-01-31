@@ -22,7 +22,6 @@ const Accounts = () => {
         }
       );
       const account = resp.data[`${fullName}`];
-      //   console.log(account);
       setAccounts(account);
     } catch (error) {
       console.log(error);

@@ -25,7 +25,7 @@ const UserInfo = ({ ...user }) => {
         </h4>
         <Link
           to={`/admin/user/${email}`}
-          className="bg-blue-400 capitalize text-white rounded py-1 px-2"
+          className="bg-blue-400 capitalize text-white rounded py-1 px-2 hover:bg-blue-500 transition-all"
         >
           details
         </Link>

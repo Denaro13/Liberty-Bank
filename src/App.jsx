@@ -52,7 +52,7 @@ function App() {
           <Route path={`/admin/user/:email`} element={<User />} />
         </Route>
         <Route path="/" element={<Landing />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="register" element={<Register />} />
         <Route path="*" element={<Error />} />
       </Routes>
       <ToastContainer position="top-center" />
